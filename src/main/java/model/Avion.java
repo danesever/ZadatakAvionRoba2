@@ -1,6 +1,8 @@
 package model;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 
 public class Avion {
     public static final String POLJE_OZNAKA = "oznaka";
@@ -42,4 +44,13 @@ public class Avion {
                 ", rasponKrila=" + rasponKrila +
                 '}';
     }
+    @ForeignCollectionField(foreignFieldName = "roba")
+    private ForeignCollection <Roba> roba;
+
+    public ForeignCollection<Roba> getRoba() {
+        return roba;
+    }
+
+    public void setRoba(ForeignCollection<Roba> roba) {this.roba = roba;}
+
 }
